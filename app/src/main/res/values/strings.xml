@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Canteen App</string>
+    <string name="add_canteen_activity_label">Add canteen</string>
+    <string name="saved_canteen_activity_label">Saved canteens</string>
+    <string name="button_saved_canteen">Saved Canteens</string>
+    <string name="button_add_canteen">Add Canteen</string>
+    <string name="qrcode">qrcode</string>
 </resources>
