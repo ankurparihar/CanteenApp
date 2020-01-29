@@ -3,8 +3,10 @@
     package="com.mpc_group17.CanteenApp">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,13 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PlaceOrderActivity"
+            android:label="Place Order"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".AddCanteenActivity"
             android:label="@string/add_canteen_activity_label"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SavedCanteensActivity"
             android:label="@string/saved_canteen_activity_label"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,8 +38,7 @@
 
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="@string/qrcode"/>
-
+            android:value="@string/qrcode" />
     </application>
 
 </manifest>

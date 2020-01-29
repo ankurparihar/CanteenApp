@@ -28,7 +28,8 @@ public class FileSystem {
         } catch (FileNotFoundException e) {
             throw e;
         } catch (Exception e) {
-            Log.e("FileSystem.readFile", (e.getMessage() != null) ? e.getMessage() : "Unknown exception");
+            Log.e("FileSystem.readFile",
+                    (e.getMessage() != null) ? e.getMessage() : "Unknown exception");
         }
         return content.toString();
     }
@@ -36,7 +37,8 @@ public class FileSystem {
     /**
      * Write to file
      */
-    public static void writeFile(Context context, String fileName, String data) throws FileNotFoundException {
+    public static void writeFile(Context context, String fileName, String data)
+            throws FileNotFoundException {
 
         FileOutputStream fileOutputStream;
 
@@ -47,7 +49,8 @@ public class FileSystem {
         } catch (FileNotFoundException e) {
             throw e;
         } catch (Exception e) {
-            Log.e("FileSystem.writeFile", (e.getMessage() != null) ? e.getMessage() : "Unknown exception");
+            Log.e("FileSystem.writeFile",
+                    (e.getMessage() != null) ? e.getMessage() : "Unknown exception");
         }
     }
 

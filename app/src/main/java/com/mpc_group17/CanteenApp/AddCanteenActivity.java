@@ -19,7 +19,7 @@ public class AddCanteenActivity extends AppCompatActivity {
 
     private void returnDummyURL(){
         Intent intent = new Intent();
-        intent.putExtra(getResources().getString(R.string.qrcode), "https://wwww.google.com");
+        intent.putExtra(getResources().getString(R.string.qrcode), "https://canteen-app-mpc2020.herokuapp.com");
         setResult(CommonStatusCodes.SUCCESS, intent);
         finish();
     }
