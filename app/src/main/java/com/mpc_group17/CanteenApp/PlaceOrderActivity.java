@@ -2,9 +2,13 @@ package com.mpc_group17.CanteenApp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -21,11 +25,16 @@ public class PlaceOrderActivity extends AppCompatActivity {
     private String canteenRootURL;
     private TextView canteenNameView;
     private JSONObject canteenData;
+    ArrayList<FoodItem> foodItems;
+
+    ListView listView;
+    private static FoodItemListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
+        foodItems = new ArrayList<FoodItem>();
         setCanteenData();
     }
 
@@ -48,7 +57,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
         }
 
         // Parse JSON for food items
-        ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
+
         JSONArray itemList;
         try {
             itemList = (JSONArray) canteenData.get(getResources().getString(R.string.json_item_list));
@@ -67,8 +76,11 @@ public class PlaceOrderActivity extends AppCompatActivity {
                     e.getMessage() != null ? e.getMessage() : "Unknown exception");
         }
 
-        // Display food items
+        // Dynamically display food items
+        listView = (ListView) findViewById(R.id.food_item_list);
+        adapter = new FoodItemListAdapter(foodItems, getApplicationContext());
 
+        listView.setAdapter(adapter);
     }
 
     /**
@@ -133,45 +145,45 @@ public class PlaceOrderActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * Place the order to canteen server
+     */
+    public void placeOrder(View view) {
+
+        // Iterate through all items in list and update `foodItems`
+        JSONArray selectedItems = new JSONArray();
+        View v;
+        EditText e;
+        TextView name, price;
+        int quantity;
+        JSONArray itemList;
+        JSONObject object;
+
+        try {
+            itemList = (JSONArray) canteenData.get(getResources().getString(R.string.json_item_list));
+
+            for (int i = 0; i < listView.getCount(); ++i) {
+                v = listView.getChildAt(i);
+                e = (EditText) v.findViewById(R.id.food_quantity);
+                name = (TextView) v.findViewById(R.id.food_name);
+                price = (TextView) v.findViewById(R.id.food_price);
+                quantity = Integer.parseInt(e.getText().toString());
+                if (quantity > 0) {
+                    selectedItems.put(new JSONObject()
+                            .put(getResources().getString(R.string.json_item_name), name.getText().toString())
+                            .put(getResources().getString(R.string.json_item_quantity), quantity)
+                            .put(getResources().getString(R.string.json_item_price), Integer.parseInt(price.getText().toString()))
+                    );
+                }
+            }
+        } catch (Exception ex) {
+            Log.e("PlaceOrderA.placeOrder", ex.getMessage());
+        }
+
+        Intent intent = new Intent(this, SubmitOrderActivity.class);
+        intent.putExtra(getResources().getString(R.string.final_order), selectedItems.toString());
+        startActivity(intent);
+    }
 }
 
-class FoodItem {
-
-    private final String name;
-    private final int price;
-    private final String imageURL;
-    private final String description;
-    private int quantity;
-
-    FoodItem(String name, String description, String imageURL, int price) {
-        this.name = name;
-        this.price = price;
-        this.imageURL = imageURL;
-        this.description = description;
-        this.quantity = 0;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getQuantity() {
-        return price;
-    }
-}

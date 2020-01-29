@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Canteen App</string>
+    <string name="submit_order_label">Submit Order</string>
+    <string name="place_order_label">Place Order</string>
     <string name="add_canteen_activity_label">Add canteen</string>
     <string name="saved_canteen_activity_label">Saved canteens</string>
     <string name="button_saved_canteen">Saved Canteens</string>
     <string name="button_add_canteen">Add Canteen</string>
     <string name="qrcode">qrcode</string>
+    <string name="food_edittext_placeholder">quantity</string>
+    <string name="food_name">Food Name</string>
+    <string name="food_description">food description</string>
+    <string name="food_item_quantity">food_item_quantity</string>
     <string name="save_data_file">localDB.json</string>
     <string name="canteenURL">canteenURL</string>
     <string name="canteenDataURL">fetch.php</string>
@@ -18,4 +24,7 @@
     <string name="json_item_quantity">quantity</string>
     <string name="json_item_imageURL">imageURL</string>
     <string name="json_item_description">description</string>
+    <string name="btn_place_order">Done</string>
+    <string name="final_order">final_orders</string>
+    <string name="food_price_default">-</string>
 </resources>

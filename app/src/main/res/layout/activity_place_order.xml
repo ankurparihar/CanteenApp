@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PlaceOrderActivity">
 
     <TextView
         android:id="@+id/canteen_name_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/canteen_name_padding_left"
+        android:paddingRight="@dimen/canteen_name_padding_left"
         android:text="@string/canteen_name"
         android:textSize="30sp" />
 
     <ListView
-        android:id="@android:id/list"
+        android:id="@+id/food_item_list"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:drawSelectorOnTop="false" />
+        android:layout_height="wrap_content"
+        android:drawSelectorOnTop="false">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/btn_place_order"
+        android:layout_width="@dimen/btn_place_order_width"
+        android:layout_height="@dimen/btn_place_order_height"
+        android:layout_gravity="end"
+        android:onClick="placeOrder"
+        android:text="@string/btn_place_order" />
 </LinearLayout>

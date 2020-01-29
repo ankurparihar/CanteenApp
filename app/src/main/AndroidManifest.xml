@@ -17,8 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SubmitOrderActivity"
+            android:label="@string/submit_order_label"
+            android:parentActivityName=".PlaceOrderActivity" />
+        <activity
             android:name=".PlaceOrderActivity"
-            android:label="Place Order"
+            android:label="@string/place_order_label"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddCanteenActivity"
