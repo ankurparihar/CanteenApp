@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.URLUtil;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -34,12 +35,14 @@ public class MainActivity extends AppCompatActivity {
      * Add a new canteen
      */
     public void addCanteen(View view) {
-        Intent intent = new Intent(this, AddCanteenActivity.class);
+        Intent intent = new Intent(this, BarcodeCaptureActivity.class);
         startActivityForResult(intent, SCAN_QR_CODE_REQUEST);
+//        startActivity(intent);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == SCAN_QR_CODE_REQUEST) {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (intent != null) {
@@ -69,6 +72,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        super.onActivityResult(requestCode, resultCode, intent);
     }
 }

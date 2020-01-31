@@ -21,6 +21,10 @@
             android:label="@string/submit_order_label"
             android:parentActivityName=".PlaceOrderActivity" />
         <activity
+            android:name=".BarcodeCaptureActivity"
+            android:label="@string/scan_qrcode_label"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".PlaceOrderActivity"
             android:label="@string/place_order_label"
             android:parentActivityName=".MainActivity" />

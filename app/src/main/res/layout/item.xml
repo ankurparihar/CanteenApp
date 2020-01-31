@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -13,8 +14,10 @@
         android:paddingRight="@dimen/food_item_padding_left"
         android:paddingBottom="@dimen/food_item_padding_bottom"
         android:text="@string/food_name"
+        android:textColor="@android:color/black"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/food_quantity"
@@ -29,8 +32,10 @@
         android:ems="10"
         android:hint="@string/food_edittext_placeholder"
         android:importantForAutofill="no"
+        android:textColorHint="@android:color/secondary_text_dark"
         android:inputType="numberDecimal"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/food_description"
@@ -44,6 +49,7 @@
         android:paddingLeft="@dimen/food_item_padding_left"
         android:paddingRight="@dimen/food_item_padding_left"
         android:text="@string/food_description"
+        android:textColor="@android:color/black"
         android:textStyle="italic" />
 
     <TextView
@@ -55,6 +61,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/food_price_default"
+        android:textColor="@android:color/black"
         android:textSize="18sp" />
 
 </RelativeLayout>

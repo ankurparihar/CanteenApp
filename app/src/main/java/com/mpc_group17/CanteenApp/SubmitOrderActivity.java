@@ -21,6 +21,8 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.StandardCopyOption;
 import java.util.Locale;
 
 public class SubmitOrderActivity extends AppCompatActivity {
@@ -90,7 +92,7 @@ public class SubmitOrderActivity extends AppCompatActivity {
                     DataOutputStream dataOutputStream = new DataOutputStream(urlConnection.getOutputStream());
                     String response;
 
-                    dataOutputStream.writeBytes(itemList.toString());
+                    dataOutputStream.write(("data="+itemList.toString()).getBytes(StandardCharsets.UTF_8));
                     dataOutputStream.flush();
                     dataOutputStream.close();
 
