@@ -6,6 +6,7 @@
     <string name="saved_canteen_activity_label">Saved canteens</string>
     <string name="button_saved_canteen">Saved Canteens</string>
     <string name="button_add_canteen">Add Canteen</string>
+    <string name="button_scan_qrcode">Scan QR Code</string>
     <string name="qrcode">qrcode</string>
     <string name="food_edittext_placeholder">quantity</string>
     <string name="food_name">Food Name</string>
@@ -17,6 +18,7 @@
     <string name="canteenOrderURL">order.php</string>
     <string name="canteen_url_detect_error">Could not detect Canteen</string>
     <string name="canteen_name">Canteen Name</string>
+    <string name="loading_canteen_name">Loading&#8230;</string>
     <string name="json_canteen_name">name</string>
     <string name="json_item_list">item_list</string>
     <string name="json_item_name">name</string>
@@ -27,4 +29,9 @@
     <string name="btn_place_order">Done</string>
     <string name="final_order">final_orders</string>
     <string name="food_price_default">-</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="btn_submit">Submit</string>
+    <string name="empty"> </string>
+    <string name="success_order">Your order is being prepared</string>
+    <string name="failed_order">Could not place order</string>
 </resources>

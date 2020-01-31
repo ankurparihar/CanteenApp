@@ -8,4 +8,9 @@
     <dimen name="btn_place_order_height">40dp</dimen>
     <dimen name="btn_place_order_width">100dp</dimen>
     <dimen name="food_item_price_width">60dp</dimen>
+    <dimen name="food_item_name_width">250dp</dimen>
+    <dimen name="final_order_row_width">250dp</dimen>
+    <dimen name="final_summary_padding_left">20dp</dimen>
+    <dimen name="final_summary_margin_top">20dp</dimen>
+    <dimen name="order_status_margin_top">120dp</dimen>
 </resources>

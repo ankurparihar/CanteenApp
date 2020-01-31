@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="status_order_fail">#FF0000</color>
+    <color name="status_order_ok">#33CC5C</color>
 </resources>

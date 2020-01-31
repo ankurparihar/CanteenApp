@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -70,6 +71,11 @@ public class PlaceOrderActivity extends AppCompatActivity {
                         object.getString(getResources().getString(R.string.json_item_imageURL)),
                         object.getInt(getResources().getString(R.string.json_item_price)))
                 );
+            }
+
+            if (itemList.length() > 0) {
+                Button placeOrderButton = findViewById(R.id.btn_place_order);
+                placeOrderButton.setVisibility(View.VISIBLE);
             }
         } catch (Exception e) {
             Log.e("PlaceOrder.ItemList",
@@ -147,7 +153,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
     }
 
     /**
-     * Place the order to canteen server
+     * Show order summary
      */
     public void placeOrder(View view) {
 
@@ -168,13 +174,17 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 e = (EditText) v.findViewById(R.id.food_quantity);
                 name = (TextView) v.findViewById(R.id.food_name);
                 price = (TextView) v.findViewById(R.id.food_price);
-                quantity = Integer.parseInt(e.getText().toString());
-                if (quantity > 0) {
-                    selectedItems.put(new JSONObject()
-                            .put(getResources().getString(R.string.json_item_name), name.getText().toString())
-                            .put(getResources().getString(R.string.json_item_quantity), quantity)
-                            .put(getResources().getString(R.string.json_item_price), Integer.parseInt(price.getText().toString()))
-                    );
+                try {
+                    quantity = e.getText().toString().length() > 0 ? Integer.parseInt(e.getText().toString()) : 0;
+                    if (quantity > 0) {
+                        selectedItems.put(new JSONObject()
+                                .put(getResources().getString(R.string.json_item_name), name.getText().toString())
+                                .put(getResources().getString(R.string.json_item_quantity), quantity)
+                                .put(getResources().getString(R.string.json_item_price), Integer.parseInt(price.getText().toString()))
+                        );
+                    }
+                } catch (Exception ex) {
+                    Log.e("PlaceOrder.q->parseInt", ex.getMessage());
                 }
             }
         } catch (Exception ex) {
@@ -182,6 +192,10 @@ public class PlaceOrderActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, SubmitOrderActivity.class);
+        intent.putExtra(
+                getResources().getString(R.string.canteenURL),
+                canteenRootURL
+        );
         intent.putExtra(getResources().getString(R.string.final_order), selectedItems.toString());
         startActivity(intent);
     }

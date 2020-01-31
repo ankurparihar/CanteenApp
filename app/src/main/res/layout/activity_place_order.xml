@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/canteen_name_padding_left"
         android:paddingRight="@dimen/canteen_name_padding_left"
-        android:text="@string/canteen_name"
+        android:text="@string/loading_canteen_name"
         android:textSize="30sp" />
 
     <ListView
@@ -29,5 +29,6 @@
         android:layout_height="@dimen/btn_place_order_height"
         android:layout_gravity="end"
         android:onClick="placeOrder"
-        android:text="@string/btn_place_order" />
+        android:text="@string/btn_place_order"
+        android:visibility="gone" />
 </LinearLayout>
